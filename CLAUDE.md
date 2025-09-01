@@ -17,9 +17,16 @@
 ├── code-of-conduct.md           # 行動規範
 ├── contributing.md              # 貢献ガイド
 ├── github-setup.md              # GitHubラベル・マイルストーン設計
+├── branch-workflow.md           # ブランチ運用ワークフロー
 ├── improvements-backlog.md      # 改善項目一覧
+├── epic-design.md               # Epic設計・運用ガイド
+├── epic-quick-reference.md      # Epic早見表
+├── spec-management.md           # 設定・仕様管理ガイド
 ├── scripts/
-│   └── github-setup.sh         # GitHub自動設定スクリプト
+│   ├── github-setup.sh         # GitHub自動設定スクリプト
+│   ├── setup-epics.sh          # Epic設定スクリプト
+│   ├── setup-spec-labels.sh    # spec ラベル設定スクリプト
+│   └── setup-branch-protection.sh # ブランチ保護設定スクリプト
 ├── CLAUDE.md                    # このファイル（Claude用ガイド）
 └── AGENTS.md                    # エージェント用ガイド
 ```
@@ -35,6 +42,35 @@
 - **セットアップ**: `./scripts/github-setup.sh` （ラベル・マイルストーン設定）
 - **ステータス確認**: `git status && gh issue list`
 - **テスト**: 現在なし（ドキュメント中心プロジェクトのため）
+
+## ブランチ運用ルール
+
+### 基本原則
+- **main ブランチ**: 常に安定した状態を保つ「本流」（直接プッシュ禁止）
+- **フィーチャーブランチ**: 全ての作業は feature branch で実施
+- **必須フロー**: Issue → Feature Branch → Pull Request → Review → Merge
+
+### ブランチ命名規則
+```
+[カテゴリ]/[簡潔な説明]
+
+カテゴリ:
+- feat/     新機能追加（新しいドキュメント、機能追加など）
+- fix/      バグ修正、誤字修正など
+- docs/     ドキュメント更新・改善
+- spec/     設定・仕様変更（ラベル、ワークフロー等）
+- epic/     Epic 関連作業
+```
+
+### Pull Request 必須要素
+- **適切なラベル**: 種類、領域、優先度、Epic/spec ラベル
+- **説明**: 変更内容と理由の明記
+- **関連Issue**: Closes #XX での紐付け
+- **レビュー**: 1名以上の承認が必要
+
+### 詳細ガイド
+- 詳細な手順: [`branch-workflow.md`](./branch-workflow.md)
+- ブランチ保護設定: `./scripts/setup-branch-protection.sh`
 
 ## プロジェクトの特徴
 
