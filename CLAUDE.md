@@ -22,6 +22,7 @@
 ├── epic-design.md               # Epic設計・運用ガイド
 ├── epic-quick-reference.md      # Epic早見表
 ├── spec-management.md           # 設定・仕様管理ガイド
+├── funding-sustainability.md    # 資金調達・持続可能性モデル
 ├── scripts/
 │   ├── github-setup.sh         # GitHub自動設定スクリプト
 │   ├── setup-epics.sh          # Epic設定スクリプト
